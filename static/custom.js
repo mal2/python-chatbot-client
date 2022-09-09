@@ -1,4 +1,4 @@
-var socket = new WebSocket('ws://cbapi.up.railway.app/ws');   
+var socket = new WebSocket('wss://cbapi.up.railway.app/ws');   
 
     socket.onmessage = function(msg) {
         const message = document.createElement('li');
