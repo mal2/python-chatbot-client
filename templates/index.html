@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='custom.js') }}"></script>
+    <title>Campusbib Chatbot</title>
+  </head>
+  <body>
+      <div class="chat-container">
+        <ul id="chat" class="chat">
+          <li class="message left">
+            <p>Willkommen in der Capusbibliothek.</p>
+          </li>
+        </ul>
+        <form action="" onsubmit="sendMessage(event)">
+          <input id="input" type="text" class="text_input" placeholder="Nachricht..." />
+          <input type="submit" value="Senden" />
+        </form>
+        
+      </div>
+  </body>
+</html>
