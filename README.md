@@ -1,5 +1,5 @@
 # Intent chatbot client example for library application
-Delivering the frontend, needs the [api-server]() to work correctly
+Delivering the frontend, needs the [api-server](https://github.com/mal2/python-chatbot-api) to work correctly
 ## Usage
 Creating a virtual environment and activate it:
 ```
