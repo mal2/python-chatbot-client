@@ -1,23 +1,58 @@
 var socket = new WebSocket('wss://cbapi.up.railway.app/ws');   
 
-    socket.onmessage = function(msg) {
-        const message = document.createElement('li');
-        const list = document.getElementById('chat');
-        message.textContent = msg.data;
-        message.classList.add('message', 'left');
-        list.appendChild(message);
-        window.scrollTo(0, document.body.scrollHeight);
-    };
+var $messages = $('.messages-content'),
+d, h, m,
+i = 0;
 
-    function sendMessage(event) {
-        event.preventDefault()
-        const list = document.getElementById('chat');
-        const input = document.getElementById("input");
-        const message = document.createElement('li');
-        message.textContent = input.value;
-        message.classList.add('message', 'right');
-        list.appendChild(message);
-        socket.send(input.value)
-        input.value = ''
-        window.scrollTo(0, document.body.scrollHeight);
-    }
+$(window).load(function() {
+  $messages.mCustomScrollbar();
+  socket.send("Hallo");
+});
+
+function updateScrollbar() {
+  $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+    scrollInertia: 10,
+    timeout: 0
+  });
+}
+
+function setDate(){
+  d = new Date()
+  if (m != d.getMinutes()) {
+    m = d.getMinutes();
+    $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+  }
+}
+
+function insertMessage() {
+  msg = $('.message-input').val();
+  if ($.trim(msg) == '') {
+    return false;
+  }
+  $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+  setDate();
+  $('.message-input').val(null);
+  socket.send(msg)
+  updateScrollbar();
+}
+
+$('.message-submit').click(function() {
+  insertMessage();
+});
+
+$(window).on('keydown', function(e) {
+  if (e.which == 13) {
+    insertMessage();
+    return false;
+  }
+})
+
+socket.onmessage = function(msg) {
+    $('<div class="message loading new"><span></span></div>').appendTo($('.mCSB_container'));
+    updateScrollbar();
+  
+    $('.message.loading').remove();
+    $('<div class="message new">' + msg.data + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    updateScrollbar();
+};
