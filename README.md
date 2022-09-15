@@ -1,5 +1,9 @@
 # Intent chatbot client example for library application
 Delivering the frontend, needs the [api-server](https://github.com/mal2/python-chatbot-api) to work correctly
+
+## Example
+Try on <a href="https://cbclient.up.railway.app/" target="_blank"><img src="https://railway.app/brand/logotype-light.svg" alt="Railway" width="128" /></a>
+
 ## Setup
 Creating a virtual environment and activate it:
 ```
