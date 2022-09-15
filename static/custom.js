@@ -1,4 +1,5 @@
-var socket = new WebSocket('wss://cbapi.up.railway.app/ws');   
+var socket = new WebSocket('wss://cbapi.up.railway.app/ws');
+/*var socket = new WebSocket('ws://127.0.0.1:8000/ws');*/
 
 var $messages = $('.messages-content'),
 d, h, m,
@@ -6,7 +7,7 @@ i = 0;
 
 $(window).load(function() {
   $messages.mCustomScrollbar();
-  socket.send("Hallo");
+  socket.send('Hallo');
 });
 
 function updateScrollbar() {
@@ -47,7 +48,7 @@ $(window).on('keydown', function(e) {
   }
 })
 
-socket.onmessage = function(msg) {
+socket.onmessage = function (msg) {
     $('<div class="message loading new"><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
   
