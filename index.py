@@ -1,5 +1,6 @@
 # /index.py
 from flask import Flask, render_template
+from waitress import serve
 import os
 
 app: Flask = Flask(__name__)
@@ -10,4 +11,5 @@ def index() -> str:
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=False, port=os.getenv("PORT", default=5000))
+    serve(app, port=5000, host="0.0.0.0")
+    #app.run(debug=False, port=os.getenv("PORT", default=5000))
