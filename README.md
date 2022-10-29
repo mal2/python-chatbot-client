@@ -2,7 +2,7 @@
 Delivering the frontend, needs the [api-server](https://github.com/mal2/python-chatbot-api) to work correctly
 
 ## Example
-Try on <a href="https://cbclient.up.railway.app/" target="_blank"><img src="https://railway.app/brand/logotype-light.svg" alt="Railway" width="128" /></a>
+Try on <a href="https://cbclient.fly.dev/" target="_blank"><img src="https://fly.io/public/images/brand/brandmark.svg" alt="fly.io" width="32" /></a>
 
 ## Setup
 Creating a virtual environment and activate it:
